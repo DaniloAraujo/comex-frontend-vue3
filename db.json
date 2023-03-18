@@ -1,0 +1,22 @@
+{
+  "categorias": [
+    {
+      "id": "acd3d6b3-788d-46dc-b3de-b8cc4a91c74f",
+      "nome": "Móveis",
+      "criacao": "2023-18-3",
+      "status": "ATIVA"
+    },
+    {
+      "id": "75f198b3-e85c-436f-83c5-e1dee697ae09",
+      "nome": "Informática",
+      "criacao": "2023-18-3",
+      "status": "ATIVA"
+    },
+    {
+      "id": "a2c9901e-9e87-4bfd-b38a-87ec4fa2f9bd",
+      "nome": "Livros",
+      "criacao": "2023-18-3",
+      "status": "ATIVA"
+    }
+  ]
+}

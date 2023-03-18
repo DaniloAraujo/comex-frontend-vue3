@@ -14,22 +14,22 @@
                     <div class="carousel-item active">
                         <img src="../../assets/images/gamer.jpg" class="d-block w-100" alt="banner central 1">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>CONFIRA AS PROMOÇÕES</h2>
-                                <p class="fs-4 text-light">Monte seu setup</p>
+                            <h2>{{ promocoes }}</h2>
+                                <p class="fs-4 text-light">{{ subPromocoes }}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/images/razer.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>CONFIRA AS PROMOÇÕES</h2>
-                                <p class="fs-4 text-light">Monte seu setup</p>
+                            <h2>{{}}</h2>
+                                <p class="fs-4 text-light">{{}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/images/personagens.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>CONFIRA AS PROMOÇÕES</h2>
-                                <p class="fs-4 text-light">Monte seu setup</p>
+                            <h2>{{}}</h2>
+                                <p class="fs-4 text-light">{{}}</p>
                         </div>
                     </div>
                 </div>
@@ -38,6 +38,17 @@
     </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+    name: 'Slide',
+
+    data() {
+        return {
+            promocoes: 'CONFIRA AS PROMOÇÕES',
+            subPromocoes: 'Monte seu setup'
+        }
+    }
+})
 </script>

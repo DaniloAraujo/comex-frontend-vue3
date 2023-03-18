@@ -45,12 +45,19 @@
         </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+    name: 'Rodape',
+
+    data() {
+        return {}
+    }
+})
 </script>
 
 <style>
-
 .rodape {
     height: 13rem;
     display: flex;

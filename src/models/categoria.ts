@@ -10,16 +10,16 @@ function dataFormatada() {
 }
 
 export interface Categoria {
-    nome: string,
-    id: string,
-    criacao: string,
-    status: string
+    id: string;
+    nome: string;
+    criacao: string;
+    status: string;
 }
 
 export const criaCategoria = (nome: string): Categoria => {
     return {
         id: uuidv4(),
-        nome: nome,
+        nome,
         criacao: dataFormatada(),
         status: 'ATIVA'
     };

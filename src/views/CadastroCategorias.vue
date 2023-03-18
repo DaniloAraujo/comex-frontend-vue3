@@ -1,15 +1,14 @@
 <template>
         <section class="container">
-            <form id="formulario-categoria">
+            <form id="formulario-categoria" @submit.prevent="salvaCategoria">
                 <div class="text-center mt-5">
-                    <h2>Nova Categoria</h2>
+                    <h2>{{ titulo }}</h2>
                     <div class="row">
                         <div class="col"></div>
                         <div class="col-md-6 d-flex">
                             <input type="text" class="form-control rounded-0 rounded-start-2" id="form-nome"
                                 name="form-nome" v-model="categoriaNome">
-                            <button type="submit" id="enviar" @click.prevent="salvaCategorias(categoriaNome)"
-                                class="btn btn-primary rounded-0 rounded-end-2">Salvar</button>
+                            <button type="submit" class="btn btn-primary rounded-0 rounded-end-2">Salvar</button>
                         </div>
                         <div class="col"></div>
                     </div>
@@ -28,13 +27,17 @@
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
-                    <tbody v-for="(item, index) in categorias" :key="index">
-                        <tr>
+                    <tbody>
+                        <tr v-for="item in arrCategorias" :key="item.id">
                             <td>{{ item.nome }}</td>
                             <td>{{ item.status }}</td>
                             <td>{{ item.criacao }}</td>
                             <td>
-                                <button type="button" class="btn" id="excluir" @click="exluiCategoria(item.id)" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 0, 0, 1);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
+                                <button class="btn btn-outline-primary btn-sm m-1" @click.prevent="editaNomeCategoria(item)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm m1" @click.prevent="excluiCategoria(item)">
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </td>
                         </tr>
@@ -44,22 +47,54 @@
         </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
+
 import { criaCategoria, type Categoria } from '@/models/categoria.js';
-import { ref } from 'vue';
+import { apiSalvaCategoria, apiBuscaCategoria, apiExcluiCategoria, apiEditaCategoria } from '@/services/categoria-service';
 
-let categoriaNome: string = '';
+export default defineComponent({
+    name: 'CadastroCategorias',
 
-let categorias: any = ref<Categoria[]>([]);
+    data() {
+        return {
+            titulo: 'Nova Categoria',
+            categoriaNome: '',
+            arrCategorias: [] as Categoria[]
+        }
+    },
 
-function salvaCategorias(nome: string) {
-    categorias.value.push(criaCategoria(nome));
-    console.log(categorias.value);
-}
+    methods: {
+        salvaCategoria() {
+        let novaCategoria = criaCategoria(this.categoriaNome);
 
-function exluiCategoria(id: string) {
-    let novaLista = categorias.value.filter((objeto: any) => objeto.id !== id);
-    categorias.value = novaLista;
-}
+        apiSalvaCategoria(novaCategoria)
+            .then((categoriaCadastrada: Categoria) => {
+                this.categoriaNome = '';
+                this.arrCategorias.push(categoriaCadastrada);
+            })
+        },
+
+        excluiCategoria(categoria: Categoria) {
+            apiExcluiCategoria(categoria)
+                .then(() => {
+                    this.arrCategorias = this.arrCategorias.filter(c => c.id !== categoria.id);
+                });
+        },
+
+        editaNomeCategoria(categoria: Categoria) {
+            let novoNome = prompt('Digite o novo nome da categoria:');
+            if (novoNome && novoNome.trim().length > 2) {
+                categoria.nome = novoNome;
+                apiEditaCategoria(categoria)
+            }
+        }
+    },
+
+    mounted() {
+        apiBuscaCategoria()
+            .then((categorias: any) => this.arrCategorias = categorias);
+    }
+})
 
 </script>

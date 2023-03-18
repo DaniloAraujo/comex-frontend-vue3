@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+            <div class="container-fluid container">
                 <div class="navbar-brand">
                     <svg width="116" height="43" viewBox="0 0 116 43" fill="#FFFFFF"
                         xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item me-1">
                             <a class="nav-link text-white" aria-current="page" href="#">Promoções</a>
                         </li>
@@ -66,7 +66,7 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Rua Tenente Negrão, 140, Itaim Bibi - SP.
+                                            {{ endereco }}
                                         </div>
                                         <div class="modal-footer">
                                         </div>
@@ -87,8 +87,18 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+    name: 'BarraNavegacao',
+
+    data() {
+        return {
+            endereco: 'Rua Tenente Negrão, 140, Itaim Bibi - SP'
+        }
+    }
+})
 </script>
 
 <style scoped>

@@ -4,8 +4,8 @@
   </header>
 
   <main>
-    <!-- <CadastroCategorias /> -->
-    <Home />
+    <CadastroCategorias />
+    <!-- <Home /> -->
   </main>
 
   <footer>
@@ -13,15 +13,32 @@
   </footer>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
+
 import BarraNavegacao from '@/components/BarraNavegacao.vue';
 import Rodape from '@/components/Rodape.vue';
 import CadastroCategorias from '@/views/CadastroCategorias.vue';
 import Home from '@/views/home/Home.vue';
 
+export default defineComponent({
+  name: 'App',
+
+  components: {
+    BarraNavegacao,
+    Rodape,
+    CadastroCategorias,
+    Home
+  },
+
+  data() {
+    return {}
+  }
+})
+
 </script>
 
-<style scoped>
+<style>
 footer {
   background-color: #8FA8FF;
     margin-top: 150px;

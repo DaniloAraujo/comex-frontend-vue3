@@ -1,22 +1,87 @@
 {
   "categorias": [
     {
-      "id": "acd3d6b3-788d-46dc-b3de-b8cc4a91c74f",
-      "nome": "Móveis",
-      "criacao": "2023-18-3",
-      "status": "ATIVA"
-    },
-    {
-      "id": "75f198b3-e85c-436f-83c5-e1dee697ae09",
-      "nome": "Informática",
-      "criacao": "2023-18-3",
-      "status": "ATIVA"
-    },
-    {
       "id": "a2c9901e-9e87-4bfd-b38a-87ec4fa2f9bd",
       "nome": "Livros",
       "criacao": "2023-18-3",
       "status": "ATIVA"
+    },
+    {
+      "id": "5bcd7e66-4e6f-49ed-83a2-6259bef0d8e7",
+      "nome": "Móveis",
+      "criacao": "2023-23-3",
+      "status": "ATIVA"
+    },
+    {
+      "id": "6651c8fb-87f1-40df-a333-e8913004696b",
+      "nome": "Informática",
+      "criacao": "2023-23-3",
+      "status": "ATIVA"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Monitor LG",
+      "descricao": "Monitor grande LG",
+      "preco": "1050",
+      "quantidade": 2,
+      "url": "https://cdn.awsli.com.br/600x700/2078/2078228/produto/156131708/57e2c85e58.jpg",
+      "categoria": "Informática",
+      "id": "bb8a9174-b484-4035-a8d0-fe9c8d5b99a4"
+    },
+    {
+      "nome": "Box Harry Potter",
+      "descricao": "Box livros Harry Potter",
+      "preco": "199",
+      "quantidade": 6,
+      "url": "https://i.zst.com.br/thumbs/12/22/10/48176509.jpg",
+      "categoria": "Livros",
+      "id": "e40e656b-539f-458a-8ba7-15693549c0a4"
+    },
+    {
+      "nome": "Escrivaninha de canto",
+      "descricao": "Escrivaninha preta de madeira",
+      "preco": "350",
+      "quantidade": 2,
+      "url": "https://a-static.mlcdn.com.br/1500x1500/escrivaninha-penteadeira-mobler-princesa/lojasmm/9017/3ace141d491c5d76857495940e326e68.jpeg",
+      "categoria": "Móveis",
+      "id": "76d40250-e311-4ad6-b271-7d5b69472bff"
+    }
+  ],
+  "clientes": [
+    {
+      "nome": "Danilo",
+      "sobrenome": "Araujo",
+      "cpf": "44003554892",
+      "telefone": "11960598551",
+      "email": "daniloo.ag2@gmail.com",
+      "endereco": {
+        "cep": "01001001",
+        "cidade": "São Paulo",
+        "bairro": "Sé",
+        "logradouro": "Praça da Sé",
+        "uf": "SP",
+        "complemento": "lado par",
+        "numero": "333"
+      },
+      "id": 1
+    },
+    {
+      "nome": "Robeen",
+      "sobrenome": "Wood",
+      "cpf": "33344455588",
+      "telefone": "11999222389",
+      "email": "robeen@gmail.com",
+      "endereco": {
+        "cep": "01001000",
+        "cidade": "São Paulo",
+        "bairro": "Sé",
+        "logradouro": "Praça da Sé",
+        "uf": "SP",
+        "complemento": "lado ímpar",
+        "numero": "222"
+      },
+      "id": 2
     }
   ]
 }

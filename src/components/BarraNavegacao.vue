@@ -28,6 +28,7 @@
                             fill="#FFFFFF" />
                     </svg>
                 </div>
+                <RouterLink to="/" class="nav-link text-light">Inicio</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,79 +36,34 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-white" aria-current="page" href="#">Promoções</a>
+                        <li class="nav-item">
+                            <RouterLink to="/categorias" class="nav-link text-light">Categorias</RouterLink>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./pagina/categorias/index.html">Categorias</a>
+                            <RouterLink to="/produtos" class="nav-link text-light">Produtos</RouterLink>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./pagina/produtos/index.html">Cadastrar
-                                produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="./pagina/clientes/index.html">Cadastrar
-                                Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Button trigger modal -->
-                            <a data-bs-toggle="modal" class="nav-link text-white" href="#"
-                                data-bs-target="#enderecoModal">
-                                Endereço
-                            </a>
-                            <!-- Modal -->
-                            <div class="modal fade" id="enderecoModal" tabindex="-1"
-                                aria-labelledby="enderecoModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="enderecoModalLabel">Endereço</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            {{ endereco }}
-                                        </div>
-                                        <div class="modal-footer">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <RouterLink to="/clientes" class="nav-link text-light">Clientes</RouterLink>
                         </li>
                     </ul>
                     <form class="d-flex formulario" role="search" id="buscar">
                         <input class="form-control me-2" type="search" placeholder="Pesquisar..."
                             aria-label="Search">
                     </form>
-                    <a class="header__icone" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle></svg></a>
-                    <a class="header__icone" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg></a>
+                    <a class="btn btn-sm btn-outline-light m-1" href="#"><i class="fa-regular fa-user"></i></a>
+                    <RouterLink to="/carrinho" class="btn btn-sm btn-outline-light m-1"><i class="fa-solid fa-cart-shopping"></i></RouterLink>
                 </div>
             </div>
         </nav>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-    name: 'BarraNavegacao',
-
-    data() {
-        return {
-            endereco: 'Rua Tenente Negrão, 140, Itaim Bibi - SP'
-        }
-    }
-})
+<script setup lang="ts">
+const endereco = 'Rua Tenente Negrão, 140, Itaim Bibi - SP';
 </script>
 
 <style scoped>
 .navbar {
     background-color: #8FA8FF;
-}
-
-.header__icone {
-    padding: .2em;
-    margin: .2em;
 }
 </style>

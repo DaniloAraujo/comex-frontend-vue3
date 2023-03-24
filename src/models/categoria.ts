@@ -7,14 +7,14 @@ function dataFormatada() {
         .split('/')
         .reverse()
         .join('-');
-}
+};
 
 export interface Categoria {
     id: string;
     nome: string;
     criacao: string;
     status: string;
-}
+};
 
 export const criaCategoria = (nome: string): Categoria => {
     return {
@@ -23,4 +23,4 @@ export const criaCategoria = (nome: string): Categoria => {
         criacao: dataFormatada(),
         status: 'ATIVA'
     };
-}
+};

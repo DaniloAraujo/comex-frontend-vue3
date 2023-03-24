@@ -38,17 +38,7 @@
     </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-    name: 'Slide',
-
-    data() {
-        return {
-            promocoes: 'CONFIRA AS PROMOÇÕES',
-            subPromocoes: 'Monte seu setup'
-        }
-    }
-})
+<script setup lang="ts">
+const promocoes = 'CONFIRA AS PROMOÇÕES';
+const subPromocoes = 'Monte seu setup';
 </script>

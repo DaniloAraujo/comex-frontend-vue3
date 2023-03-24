@@ -4,8 +4,7 @@
   </header>
 
   <main>
-    <CadastroCategorias />
-    <!-- <Home /> -->
+    <RouterView />
   </main>
 
   <footer>
@@ -13,29 +12,9 @@
   </footer>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import BarraNavegacao from '@/components/BarraNavegacao.vue';
 import Rodape from '@/components/Rodape.vue';
-import CadastroCategorias from '@/views/CadastroCategorias.vue';
-import Home from '@/views/home/Home.vue';
-
-export default defineComponent({
-  name: 'App',
-
-  components: {
-    BarraNavegacao,
-    Rodape,
-    CadastroCategorias,
-    Home
-  },
-
-  data() {
-    return {}
-  }
-})
-
 </script>
 
 <style>

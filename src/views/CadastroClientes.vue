@@ -13,14 +13,14 @@
             </div>
             <div class="col">
                 <label for="cpfCliente" class="form-label">CPF</label>
-                <input type="text" v-model="clienteCpf" class="form-control" name="cpfCliente" data-regra="cpf" required>
+                <input type="text" ref="inputCpf" v-model="clienteCpf" class="form-control" name="cpfCliente" data-regra="cpf" required>
                 <span id="msgAlerta"></span>
             </div>
         </div>
         <div class="d-flex mt-3">
             <div class="me-3 col">
                 <label for="telefoneCliente" class="form-label">Telefone</label>
-                <input type="text" v-model="clienteTel" class="form-control" name="telefoneCliente">
+                <input type="text" ref="inputTel" v-model="clienteTel" class="form-control" name="telefoneCliente">
             </div>
             <div class="me-3 col">
                 <label for="emailCliente" class="form-label">Email</label>
@@ -31,7 +31,7 @@
                 <div>
                     <label for="cepCliente" class="form-label">CEP</label>
                     <div class="d-flex">
-                        <input type="text" v-model="clienteCep" class="form-control rounded-0 rounded-start-2"
+                        <input type="text" ref="inputCep" v-model="clienteCep" class="form-control rounded-0 rounded-start-2"
                             name="cepCliente" required>
                         <button type="button" @click.prevent="recuperaEndereco" class="btn btn-primary rounded-0 rounded-end-2">Buscar</button>
                     </div>
@@ -78,7 +78,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import IMask from 'imask';
 
 import { apiBuscaEndereco } from '@/services/cliente-service';
 import { criaCliente, criaEndereco } from '@/models/cliente';
@@ -148,4 +149,47 @@ function preencheEndereco(data: any): void {
     endUf.value = data.uf;
     endComplemento.value = data.complemento;
 };
+
+/* <---------------------> Mascara para os inputs <---------------------> */
+const inputCpf = ref<HTMLInputElement | null>(null);
+const inputTel = ref<HTMLInputElement | null>(null);
+const inputCep = ref<HTMLInputElement | null>(null);
+
+onMounted(() => {
+    if (inputCpf.value) {
+        const mascara = IMask(inputCpf.value, {
+            mask: '000.000.000-00',
+        });
+        mascara.on('accept', () => {
+            clienteCpf.value = mascara.value;
+        });
+    } else {
+        console.log('erro no input cpf.');
+    };
+
+    if (inputTel.value) {
+        const mascara = IMask(inputTel.value, {
+            mask: [
+                { mask: '(00) 0000-0000' },
+                { mask: '(00) 00000-0000' }
+            ]
+        });
+        mascara.on('accept', () => {
+            clienteTel.value = mascara.value;
+        });
+    } else {
+        console.log('erro no input telefone.');
+    };
+
+    if (inputCep.value) {
+        const mascara = IMask(inputCep.value, {
+            mask: '00000-000'
+        });
+        mascara.on('accept', () => {
+            clienteCep.value = mascara.value;
+        });
+    } else {
+        console.log('erro no input telefone.');
+    };
+});
 </script>

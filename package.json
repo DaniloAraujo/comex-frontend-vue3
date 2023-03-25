@@ -15,12 +15,12 @@
     "@fortawesome/fontawesome-free": "^6.3.0",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "imask": "^6.4.3",
     "pinia": "^2.0.33",
     "uuidv4": "^6.2.13",
+    "v-mask": "^2.3.0",
     "vue": "^3.2.47",
-    "vue-mask": "^1.0.0",
-    "vue-router": "^4.1.6",
-    "vue-the-mask": "^0.11.1"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/node": "^18.14.2",

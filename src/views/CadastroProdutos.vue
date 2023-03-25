@@ -8,7 +8,7 @@
                 </div>
                 <div class="col me-3">
                     <label for="preco" class="form-label">Preco</label>
-                    <input type="text" class="form-control" id="preco" name="preco" v-model="precoProduto">
+                    <input type="text" ref="inputPreco" class="form-control" id="preco" name="preco" v-model="precoProduto">
                 </div>
                 <div class="col">
                     <label for="estoque" class="form-label">Quantidade em estoque</label>
@@ -42,13 +42,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import IMask from 'imask';
 
 import  { criaProduto } from '@/models/produto';
 import { apiSalvaProduto } from '@/services/produto-service';
 import { apiBuscaCategoria } from '@/services/categoria-service';
 
 const nomeProduto = ref('');
-const precoProduto = ref('');
+const precoProduto = ref<number | null>(null);
 const estoqueProduto = ref('');
 const descricaoProduto = ref('');
 const urlProduto = ref('');
@@ -58,7 +59,7 @@ function salvaProduto() {
     const novoProduto = criaProduto(
         nomeProduto.value,
         descricaoProduto.value,
-        precoProduto.value,
+        Number(precoProduto.value),
         estoqueProduto.value,
         urlProduto.value,
         categoriaProduto.value
@@ -67,7 +68,7 @@ function salvaProduto() {
     apiSalvaProduto(novoProduto)
         .then(() => {
             nomeProduto.value = '';
-            precoProduto.value = '';
+            precoProduto.value = null;
             estoqueProduto.value = '';
             descricaoProduto.value = '';
             urlProduto.value = '';
@@ -77,8 +78,20 @@ function salvaProduto() {
 
 const nomeCategoriaDoProduto: any = ref([]);
 
+const inputPreco = ref<HTMLInputElement | null>(null);
+
 onMounted(() => {
     apiBuscaCategoria().then(c => nomeCategoriaDoProduto.value = c);
-})
+
+    const maskOptions = {
+        mask: Number,
+        scale: 2,
+        thousandsSeparator: '.',
+        radix: ',',
+        signed: false,
+        padFractionalZeros: true
+    };
+    const mask = IMask(inputPreco.value as HTMLInputElement, maskOptions);
+});
 
 </script>

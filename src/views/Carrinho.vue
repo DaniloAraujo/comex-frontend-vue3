@@ -7,14 +7,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="item in carrinhoStore.produtos" :key="item.id">
+            <tr v-for="item in carrinhoStore.produtos">
                 <td>{{ item.nome }}</td>
                 <td>{{ item.preco }}</td>
             </tr>
             <tr>
                 <td></td>
                <td>
-                Total: {{ valorTotal() }}
+                <strong>Total: {{ carrinhoStore.valorTotal }}</strong>
                </td>
             </tr>
         </tbody>
@@ -25,9 +25,4 @@
 import { useCarrinhoStore } from '@/stores/carrinho';
 
 const carrinhoStore = useCarrinhoStore();
-
-function valorTotal(): number {
-    return carrinhoStore.produtos.reduce((total, valorProduto) => total + valorProduto.preco, 0)
-}
-
 </script>

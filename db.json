@@ -1,12 +1,6 @@
 {
   "categorias": [
     {
-      "id": "a2c9901e-9e87-4bfd-b38a-87ec4fa2f9bd",
-      "nome": "Livros",
-      "criacao": "2023-18-3",
-      "status": "ATIVA"
-    },
-    {
       "id": "5bcd7e66-4e6f-49ed-83a2-6259bef0d8e7",
       "nome": "Móveis",
       "criacao": "2023-23-3",
@@ -17,35 +11,41 @@
       "nome": "Informática",
       "criacao": "2023-23-3",
       "status": "ATIVA"
+    },
+    {
+      "id": "561cea81-dde3-4519-b2ec-81627d03f593",
+      "nome": "Livros",
+      "criacao": "2023-24-3",
+      "status": "ATIVA"
     }
   ],
   "produtos": [
     {
-      "nome": "Monitor LG",
-      "descricao": "Monitor grande LG",
-      "preco": "1050",
+      "nome": "Monitor LG 19'",
+      "descricao": "Monitor gamer LG 19', 1ms, 4k",
+      "preco": 1099,
       "quantidade": 2,
-      "url": "https://cdn.awsli.com.br/600x700/2078/2078228/produto/156131708/57e2c85e58.jpg",
+      "url": "https://falabella.scene7.com/is/image/FalabellaPE/gsc_116543035_1532012_1?wid=800&hei=800&qlt=70",
       "categoria": "Informática",
-      "id": "bb8a9174-b484-4035-a8d0-fe9c8d5b99a4"
+      "id": "7ea87ad3-e010-4814-a17c-d02c0a53e3de"
     },
     {
-      "nome": "Box Harry Potter",
-      "descricao": "Box livros Harry Potter",
-      "preco": "199",
-      "quantidade": 6,
-      "url": "https://i.zst.com.br/thumbs/12/22/10/48176509.jpg",
-      "categoria": "Livros",
-      "id": "e40e656b-539f-458a-8ba7-15693549c0a4"
-    },
-    {
-      "nome": "Escrivaninha de canto",
-      "descricao": "Escrivaninha preta de madeira",
-      "preco": "350",
-      "quantidade": 2,
+      "nome": "Escrivaninha",
+      "descricao": "Escrivaninha de canto, madeira de pinheiro.",
+      "preco": 300,
+      "quantidade": 4,
       "url": "https://a-static.mlcdn.com.br/1500x1500/escrivaninha-penteadeira-mobler-princesa/lojasmm/9017/3ace141d491c5d76857495940e326e68.jpeg",
       "categoria": "Móveis",
-      "id": "76d40250-e311-4ad6-b271-7d5b69472bff"
+      "id": "60c6abe9-2945-4b77-ada7-b9e3e7fc62e3"
+    },
+    {
+      "nome": "Livro Clean Code",
+      "descricao": "Livro dedicado ao publico de tecnologia.",
+      "preco": 99,
+      "quantidade": 1,
+      "url": "https://5.imimg.com/data5/WZ/NH/HL/SELLER-99655515/clean-code-a-handbook-of-agile-software-craftsmanship-book-500x500.jpg",
+      "categoria": "Livros",
+      "id": "bd38d19d-2c4c-452c-880a-0402823f2ac2"
     }
   ],
   "clientes": [

@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export interface Endereco {
     cep: string,
     cidade: string,
@@ -26,8 +24,7 @@ export const criaEndereco = (
     logradouro: string,
     uf: string,
     complemento: string,
-    numero: string
-): Endereco => {
+    numero: string): Endereco => {
     return {
         cep,
         cidade,
@@ -45,8 +42,7 @@ export const criaCliente = (
     cpf: string,
     telefone: string,
     email: string,
-    endereco: Endereco
-): Cliente => {
+    endereco: Endereco): Cliente => {
     return {
         nome,
         sobrenome,
